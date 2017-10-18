@@ -1,0 +1,4 @@
+#!/bin/bash
+set -ex
+
+openstack server create x1 --image xenial --flavor 3 --key-name nova-key --nic net-id=`openstack network list | grep test | awk '{ print $2 }'`

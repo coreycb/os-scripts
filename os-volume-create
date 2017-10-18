@@ -1,0 +1,4 @@
+#!/bin/bash
+set -ex
+
+openstack volume create --size 1 test-vol

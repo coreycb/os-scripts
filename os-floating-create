@@ -1,0 +1,5 @@
+#!/bin/bash
+set -ex
+
+openstack ip floating create ext_net
+openstack ip floating list

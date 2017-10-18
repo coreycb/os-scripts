@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x
+
+for uuid in $(openstack security group list | grep default | awk {' print $2 '}); do
+    openstack security group rule create --proto tcp --dst-port 22 --src-ip 0.0.0.0/0 $uuid
+    openstack security group rule create --proto icmp --dst-port -1 --src-ip 0.0.0.0/0 $uuid
+done
