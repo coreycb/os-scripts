@@ -1,0 +1,5 @@
+#!/bin/bash
+set -ex
+
+ip=$(openstack ip floating list | grep 10.30 | tail -n 1 | awk '{ print $4 }')
+openstack ip floating add $ip x1
